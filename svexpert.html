@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>svexpert — Kfz-Sachverständigenbüro</title>
+<meta name="description" content="svexpert Kfz-Sachverständigenbüro: Schadensgutachten, Bewertungen, Beweissicherungen und Gerichtsgutachten, bundesweit, mit über 25 Jahren Erfahrung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2A4A;
+    --navy-2:#0E3760;
+    --blue:#1567AE;
+    --blue-light:#EAF2FB;
+    --blue-mist:#F5F9FD;
+    --white:#FFFFFF;
+    --ink:#122236;
+    --ink-soft:#516170;
+    --line: rgba(11,42,74,0.14);
+    --line-on-navy: rgba(255,255,255,0.18);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Archivo', 'Inter', sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--navy);
+    margin:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:200;}
+  .skip-link:focus{left:12px;top:12px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--line);}
+  .headbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .logo{font-family:'Archivo', sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.02em;color:var(--navy);}
+  .logo span{color:var(--blue);}
+  nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;}
+  nav a{text-decoration:none;font-size:0.95rem;color:var(--ink-soft);padding:6px 0;border-bottom:1px solid transparent;transition:color .15s ease, border-color .15s ease;}
+  nav a:hover{color:var(--navy);border-color:var(--blue);}
+  .head-right{display:flex;align-items:center;gap:22px;}
+  .phone-pill{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:0.95rem;color:var(--navy);border:1px solid var(--line);padding:9px 16px;border-radius:999px;transition:background .15s ease, border-color .15s ease;}
+  .phone-pill:hover{background:var(--blue-light);border-color:var(--blue);}
+  .phone-pill svg{width:15px;height:15px;flex:none;}
+  .nav-toggle{display:none;background:none;border:none;padding:8px;cursor:pointer;color:var(--navy);}
+  .nav-toggle svg{width:24px;height:24px;}
+
+  /* Hero */
+  .hero{background:var(--blue-mist);border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;align-items:center;min-height:520px;}
+  .hero-text{padding:64px 56px 64px 28px;}
+  .kicker{font-size:0.92rem;color:var(--blue);font-weight:600;margin-bottom:18px;}
+  h1{font-size:clamp(2.1rem, 3.6vw, 3.1rem);line-height:1.1;max-width:16ch;}
+  .hero-text p.lead{margin-top:22px;font-size:1.12rem;color:var(--ink-soft);max-width:44ch;}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--radius);font-size:0.98rem;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s ease, border-color .15s ease, color .15s ease;}
+  .btn-primary{background:var(--blue);color:#fff;}
+  .btn-primary:hover{background:var(--navy-2);}
+  .btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent;}
+  .btn-ghost:hover{background:var(--navy);color:#fff;}
+
+  .hero-art{display:flex;align-items:center;justify-content:center;padding:40px;}
+  .hero-art svg{width:100%;max-width:420px;height:auto;}
+
+  /* Sections */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .kicker{margin-bottom:14px;}
+  h2{font-size:clamp(1.6rem, 2.6vw, 2.15rem);line-height:1.16;}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;margin-top:14px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* Trust strip */
+  .trust{border-bottom:1px solid var(--line);background:var(--white);}
+  .trust .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding:30px 28px;}
+  .trust-item{display:flex;align-items:center;gap:14px;color:var(--ink-soft);font-size:0.95rem;}
+  .trust-item svg{width:22px;height:22px;color:var(--blue);flex:none;}
+  .trust-item strong{color:var(--navy);display:block;font-size:0.98rem;}
+
+  /* Services */
+  .service-list{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);}
+  .service{padding:34px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .service svg{width:30px;height:30px;color:var(--blue);margin-bottom:22px;}
+  .service h3{font-size:1.08rem;margin-bottom:10px;}
+  .service p{color:var(--ink-soft);font-size:0.95rem;margin:0;}
+
+  /* Ablauf (process) */
+  .process{background:var(--blue-mist);}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .step .num{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.6rem;color:var(--blue);margin-bottom:18px;}
+  .step h3{font-size:1.1rem;margin-bottom:10px;}
+  .step p{color:var(--ink-soft);font-size:0.95rem;margin:0;}
+
+  /* Vorteile split with illustration */
+  .advantages{background:var(--navy);color:var(--white);}
+  .adv-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  .adv-art{display:flex;align-items:center;justify-content:center;}
+  .adv-art svg{width:100%;max-width:320px;height:auto;}
+  .advantages .kicker{color:#8FC3EE;}
+  .advantages .section-head{margin-bottom:32px;}
+  .advantages .section-head p{color:#B7CBE0;}
+  .check-list{list-style:none;margin:0;padding:0;}
+  .check-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-on-navy);}
+  .check-item svg{width:20px;height:20px;flex:none;margin-top:3px;color:#8FC3EE;}
+  .check-item p{margin:0;color:#DCE6F0;font-size:1rem;}
+
+  /* Audiences */
+  .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);}
+  .audience{background:var(--white);padding:40px;}
+  .audience h3{font-size:1.3rem;margin-bottom:14px;}
+  .audience p.desc{color:var(--ink-soft);margin-bottom:22px;}
+  .audience ul{margin:0;padding:0;list-style:none;}
+  .audience li{padding:11px 0;border-top:1px solid var(--line);font-size:0.98rem;display:flex;gap:10px;}
+  .audience li:first-of-type{border-top:none;}
+  .audience li::before{content:"—";color:var(--blue);flex:none;}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);}
+  .location{background:var(--white);padding:36px;}
+  .location .pin{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:600;font-size:0.9rem;margin-bottom:16px;}
+  .location .pin svg{width:18px;height:18px;}
+  .location address{font-style:normal;line-height:1.7;color:var(--ink-soft);}
+  .location address strong{color:var(--navy);display:block;font-size:1.1rem;margin-bottom:6px;}
+
+  .contact-cta{margin-top:44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;background:var(--navy);color:var(--white);padding:40px 44px;border-radius:var(--radius);}
+  .contact-cta h3{color:var(--white);font-size:1.4rem;max-width:22ch;}
+  .contact-links{display:flex;gap:14px;flex-wrap:wrap;}
+  .contact-links .btn-primary{background:var(--blue);}
+  .contact-links .btn-ghost{border-color:var(--white);color:var(--white);}
+  .contact-links .btn-ghost:hover{background:var(--white);color:var(--navy);}
+
+  footer{padding:36px 0;border-top:1px solid var(--line);background:var(--white);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.85rem;color:var(--ink-soft);}
+  .foot-links{display:flex;gap:20px;}
+  .foot-links a{text-decoration:none;color:var(--ink-soft);}
+  .foot-links a:hover{color:var(--navy);}
+
+  @media (max-width: 900px){
+    nav{position:fixed;inset:0 0 0 30%;background:var(--white);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;padding:100px 28px 28px;z-index:150;}
+    nav.open{transform:translateX(0);}
+    nav ul{flex-direction:column;gap:6px;}
+    nav a{display:block;padding:12px 0;font-size:1.05rem;}
+    .nav-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;min-height:0;}
+    .hero-art{order:-1;padding:32px 32px 0;}
+    .hero-text{padding:32px 20px 48px;}
+    .service-list{grid-template-columns:1fr 1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .adv-grid{grid-template-columns:1fr;}
+    .audience-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width: 520px){
+    .service-list{grid-template-columns:1fr;}
+    .contact-cta{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header>
+  <div class="wrap headbar">
+    <div class="logo">sv<span>expert</span></div>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#vorteile">Vorteile</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="head-right">
+      <a class="phone-pill" href="tel:+498004008822">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.6 2z"/></svg>
+        0800 400 88 22
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="siteNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding:0;">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="kicker">Kfz-Sachverständigenbüro · bundesweit</p>
+        <h1>Gutachten, denen Werkstätten, Gerichte und Versicherungen vertrauen</h1>
+        <p class="lead">svexpert erstellt Schadensgutachten, Bewertungen, Beweissicherungen und Gerichtsgutachten für Kfz-Schäden — mit über 25 Jahren Erfahrung im Kfz-Sektor.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#kontakt">Gutachten anfordern</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 420 320" fill="none">
+          <circle cx="210" cy="160" r="150" fill="#EAF2FB"/>
+          <!-- car silhouette -->
+          <path d="M90 200 Q95 165 130 158 L150 130 Q160 118 178 118 L252 118 Q270 118 280 130 L300 158 Q335 165 340 200 L340 208 Q340 216 332 216 L310 216 Q308 232 292 232 Q276 232 274 216 L166 216 Q164 232 148 232 Q132 232 130 216 L98 216 Q90 216 90 208 Z" fill="#0B2A4A"/>
+          <path d="M168 158 L182 132 L248 132 L262 158 Z" fill="#EAF2FB"/>
+          <circle cx="148" cy="216" r="18" fill="#0B2A4A" stroke="#EAF2FB" stroke-width="4"/>
+          <circle cx="292" cy="216" r="18" fill="#0B2A4A" stroke="#EAF2FB" stroke-width="4"/>
+          <!-- measurement / inspection lines -->
+          <line x1="90" y1="248" x2="340" y2="248" stroke="#1567AE" stroke-width="2" stroke-dasharray="6 6"/>
+          <line x1="90" y1="240" x2="90" y2="256" stroke="#1567AE" stroke-width="2"/>
+          <line x1="340" y1="240" x2="340" y2="256" stroke="#1567AE" stroke-width="2"/>
+          <!-- magnifier / gutachten check -->
+          <circle cx="300" cy="90" r="30" fill="#FFFFFF" stroke="#1567AE" stroke-width="6"/>
+          <line x1="322" y1="112" x2="345" y2="135" stroke="#1567AE" stroke-width="7" stroke-linecap="round"/>
+          <path d="M288 90 l8 8 16-16" stroke="#0B2A4A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/></svg>
+        <span><strong>TÜV SÜD Autopartner GmbH</strong>Schadengutachterpartner</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4 21c1.6-3.6 4.8-6 8-6s6.4 2.4 8 6"/></svg>
+        <span><strong>Bundesverband Deutscher Sachverständiger</strong>Mitglied im BDSH e.V.</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 4 18 3-9h6"/></svg>
+        <span><strong>Zwei Standorte</strong>Hilzingen &amp; Steißlingen</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Leistungen</p>
+        <h2>Vier Gutachtenarten, ein Ansprechpartner</h2>
+        <p>Von der ersten Schadensaufnahme bis zum verwertbaren Gutachten für Gericht oder Versicherung.</p>
+      </div>
+    </div>
+    <div class="service-list">
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 13l2-6h14l2 6"/><path d="M5 13h14v5H5z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg>
+        <h3>Schadensgutachten</h3>
+        <p>Kurzfristige Schadenskalkulation und Bewertung im DAT-System nach einem Unfall oder Vorschaden.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7v6c0 5.5 3.8 9.8 9 11 5.2-1.2 9-5.5 9-11V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Bewertungen</h3>
+        <p>Fundierte Wertermittlung von Fahrzeugen und Baumaschinen für Kauf, Verkauf oder Versicherung.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="1.5"/><circle cx="12" cy="12" r="3.2"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
+        <h3>Beweissicherungen</h3>
+        <p>Zügige, gerichtsfeste Dokumentation von Schadensfällen — auch bei kurzfristigen Terminen.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M5 8l2-2M19 8l-2-2"/><path d="M4 8h6M14 8h6"/><path d="M7 8l-3 6h6l-3-6zM17 8l-3 6h6l-3-6z"/><path d="M12 11v8M8 21h8"/></svg>
+        <h3>Gerichtsgutachten</h3>
+        <p>Belastbare Gutachten mit Simulationssoftware, gerichtsverwertbar aufbereitet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="ablauf">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">So läuft es ab</p>
+        <h2>Vom Anruf bis zum fertigen Gutachten</h2>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Schaden melden</h3>
+          <p>Sie erreichen uns telefonisch oder per Mail — wir vereinbaren kurzfristig einen Besichtigungstermin.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Fahrzeug prüfen</h3>
+          <p>Vor Ort dokumentieren wir den Schaden und kalkulieren ihn im DAT-System.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Gutachten erhalten</h3>
+          <p>Sie bekommen ein belastbares Gutachten für Werkstatt, Versicherung oder Gericht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantages" id="vorteile">
+    <div class="wrap adv-grid">
+      <div class="adv-art">
+        <svg viewBox="0 0 260 300" fill="none">
+          <rect x="20" y="10" width="220" height="280" rx="8" fill="#0E3760" stroke="#8FC3EE" stroke-width="2"/>
+          <rect x="90" y="0" width="80" height="26" rx="6" fill="#8FC3EE"/>
+          <line x1="46" y1="70" x2="214" y2="70" stroke="#8FC3EE" stroke-width="3"/>
+          <line x1="46" y1="100" x2="180" y2="100" stroke="#8FC3EE" stroke-width="3" opacity="0.6"/>
+          <line x1="46" y1="130" x2="214" y2="130" stroke="#8FC3EE" stroke-width="3"/>
+          <line x1="46" y1="160" x2="180" y2="160" stroke="#8FC3EE" stroke-width="3" opacity="0.6"/>
+          <line x1="46" y1="190" x2="214" y2="190" stroke="#8FC3EE" stroke-width="3"/>
+          <circle cx="130" cy="240" r="34" fill="#1567AE"/>
+          <path d="M115 240 l11 11 22-22" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-head">
+          <p class="kicker">Ihre Vorteile</p>
+          <h2>Was svexpert im Schadensfall übernimmt</h2>
+        </div>
+        <ul class="check-list">
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Bundesweite Gutachtenerstellung</p></li>
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Zügige Beweissicherung von Schadensfällen</p></li>
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Kurzfristige Schadenskalkulationen und Bewertungen im DAT-System</p></li>
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Reibungslose Nachbesichtigungen bei Schadenausweitungen</p></li>
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Technische Beratung und Begleitung der Reparaturen</p></li>
+          <li class="check-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p>Erstellung von Gerichtsgutachten mit Simulationssoftware</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="kunden">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Für wen wir arbeiten</p>
+        <h2>Privat- und Geschäftskunden</h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience">
+          <h3>Privatkunden</h3>
+          <p class="desc">Nach einem Unfall zählt jeder Tag. Wir sichern den Schaden schnell und unabhängig.</p>
+          <ul>
+            <li>Unabhängige Schadenskalkulation nach einem Unfall</li>
+            <li>Klare Einschätzung für Gespräche mit der Versicherung</li>
+            <li>Bewertung beim Kauf oder Verkauf eines Fahrzeugs</li>
+          </ul>
+        </div>
+        <div class="audience">
+          <h3>Geschäftskunden</h3>
+          <p class="desc">Für Werkstätten, Flotten und Versicherungen mit wiederkehrendem Gutachtenbedarf.</p>
+          <ul>
+            <li>Feste Ansprechpartner für laufende Schadensfälle</li>
+            <li>Nachbesichtigungen bei Reparaturausweitungen</li>
+            <li>Bewertungen auch für Baumaschinen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Standorte &amp; Kontakt</p>
+        <h2>Zwei Standorte am Bodensee, ein Team</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="location">
+          <div class="pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Hauptsitz
+          </div>
+          <address><strong>svexpert</strong>Gewerbestr. 19A<br>78247 Hilzingen</address>
+        </div>
+        <div class="location">
+          <div class="pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Zweigstelle
+          </div>
+          <address><strong>svexpert</strong>Daimlerstr. 10<br>78256 Steißlingen</address>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Schaden melden oder Gutachten anfragen</h3>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="tel:+498004008822">0800 400 88 22</a>
+          <a class="btn btn-ghost" href="mailto:info@svexpert.de">info@svexpert.de</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 svexpert Kfz-Sachverständigenbüro · Fax +49 800 400 88 33 · Mobil +49 173 995 16 21</span>
+    <div class="foot-links">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+</body>
+</html>
